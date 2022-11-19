@@ -1,11 +1,11 @@
 #
-# The current script is inspired by the solution created by my team during the first assignment of LOG8415E. 
+# LOG8415E - Final Project. Inspired by my team solution during the first assignment. 
 # See this repo for the original code: https://github.com/chrichriGeorgie/Lab1-LOG8415E
 #
 # main.sh
-# A bash script that will orchastre each part of the final project demonstration.
-#!/bin/bash
+# A bash script that will orchestrate each part of the final project demonstration.
 
+#!/bin/bash
 # Setting working directory
 cd "$(dirname "$0")"
 
