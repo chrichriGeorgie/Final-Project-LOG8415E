@@ -2,8 +2,10 @@
 # The current script is inspired by the solution created by my team during the first assignment of LOG8415E. 
 # See this repo for the original code: https://github.com/chrichriGeorgie/Lab1-LOG8415E
 #
-
+# main.sh
+# A bash script that will orchastre each part of the final project demonstration.
 #!/bin/bash
+
 # Setting working directory
 cd "$(dirname "$0")"
 
@@ -26,6 +28,8 @@ cd ../instance-creation
 terraform init
 terraform apply -auto-approve
 cd ..
+
+sleep 180
 
 # Terraform cleaning up instances
 cd ../instance-creation

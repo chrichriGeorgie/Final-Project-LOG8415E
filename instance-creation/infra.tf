@@ -1,4 +1,7 @@
-# LOG8415E - Assignment 1
+#
+# LOG8415E - Final Project. Inspired by my team solution during the first assignment. 
+# See this repo for the original code: https://github.com/chrichriGeorgie/Lab1-LOG8415E
+#
 # infra.tf
 # Terraform configuration relative to instance definitions
 
