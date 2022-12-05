@@ -11,7 +11,7 @@ resource "aws_instance" "mysql_standalone_intance" {
   ami                         = "ami-0a6b2839d44d781b2"
   instance_type               = "t2.micro"
   associate_public_ip_address = true
-  user_data = templatefile("./userdata/instance-config.sh.tftpl", {})
+  user_data = templatefile("./userdata/standalone-config.sh.tftpl", {})
   subnet_id              = aws_subnet.cluster2_subnet.id
   vpc_security_group_ids = [aws_security_group.mysql_sg.id]
 }
