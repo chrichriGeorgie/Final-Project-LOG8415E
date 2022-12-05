@@ -58,8 +58,8 @@ resource "aws_route_table_association" "rt_a_cluster2" {
 }
 
 # Security group rules to allow ssh and http on the load balancer from all addresses
-resource "aws_security_group" "flask_sg" {
-  name   = "FLASK and SSH"
+resource "aws_security_group" "mysql_sg" {
+  name   = "MySQLCluster"
   vpc_id = aws_vpc.vpc.id
 
   ingress {

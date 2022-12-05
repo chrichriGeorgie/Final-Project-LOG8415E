@@ -5,28 +5,36 @@
 # infra.tf
 # Terraform configuration relative to instance definitions
 
-# Declaring 5 instances of the m4 type
-resource "aws_instance" "m4_instance" {
-  count                       = 5
-  ami                         = "ami-0149b2da6ceec4bb0"
-  instance_type               = "m4.large"
+# Declaring 1 t2 micro instance to host MySQL standalone
+resource "aws_instance" "mysql_standalone_intance" {
+  count                       = 1
+  ami                         = "ami-0a6b2839d44d781b2"
+  instance_type               = "t2.micro"
   associate_public_ip_address = true
-  user_data = templatefile("../scripts/instance-config.sh.tftpl", {
-    number = count.index
-  })
-  subnet_id              = aws_subnet.cluster1_subnet.id
-  vpc_security_group_ids = [aws_security_group.flask_sg.id]
+  user_data = templatefile("./userdata/instance-config.sh.tftpl", {})
+  subnet_id              = aws_subnet.cluster2_subnet.id
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
 }
 
-# Declaring 4 instances of the t2 type
-resource "aws_instance" "t2_instance" {
+
+# Declaring 4 t2 micro instance to be part of the MySQL cluster
+resource "aws_instance" "mysql_cluster_intances" {
   count                       = 4
-  ami                         = "ami-0149b2da6ceec4bb0"
+  ami                         = "ami-0a6b2839d44d781b2"
+  instance_type               = "t2.micro"
+  associate_public_ip_address = true
+  user_data = templatefile("./userdata/instance-config.sh.tftpl", {})
+  subnet_id              = aws_subnet.cluster2_subnet.id
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
+}
+
+# Declaring 1 t2 large instance to be the proxy
+resource "aws_instance" "proxy_intance" {
+  count                       = 1
+  ami                         = "ami-0a6b2839d44d781b2"
   instance_type               = "t2.large"
   associate_public_ip_address = true
-  user_data = templatefile("../scripts/instance-config.sh.tftpl", {
-    number = count.index + 5
-  })
+  user_data = templatefile("./userdata/instance-config.sh.tftpl", {})
   subnet_id              = aws_subnet.cluster2_subnet.id
-  vpc_security_group_ids = [aws_security_group.flask_sg.id]
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
 }

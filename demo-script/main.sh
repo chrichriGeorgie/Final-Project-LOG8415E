@@ -27,8 +27,8 @@ aws configure set aws_session_token $aws_session_token
 cd ../instance-creation
 terraform init
 terraform apply -auto-approve
-cd ..
 
+# Waitng for instances set up
 sleep 180
 
 # Terraform cleaning up instances
