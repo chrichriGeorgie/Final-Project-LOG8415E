@@ -1,17 +1,11 @@
-[0m[1maws_vpc.vpc: Refreshing state... [id=vpc-0f9846de5d06d7a89][0m
-[0m[1maws_internet_gateway.gw: Refreshing state... [id=igw-06ae1fde1695b6e9c][0m
-[0m[1maws_subnet.cluster1_subnet: Refreshing state... [id=subnet-093e0a2a7e557be67][0m
-[0m[1maws_subnet.cluster2_subnet: Refreshing state... [id=subnet-0762cda7000d4ab35][0m
-[0m[1maws_security_group.mysql_sg: Refreshing state... [id=sg-0a1aac10952990c2f][0m
-[0m[1maws_route_table.public_rt: Refreshing state... [id=rtb-0e90375b0b785a7c9][0m
-[0m[1maws_route_table_association.rt_a_cluster2: Refreshing state... [id=rtbassoc-016afa1db7fdd7939][0m
-[0m[1maws_route_table_association.rt_a_cluster1: Refreshing state... [id=rtbassoc-0d7f27eae0245618a][0m
-[0m[1maws_instance.mysql_cluster_intances[0]: Refreshing state... [id=i-037847e4278f7fea0][0m
-[0m[1maws_instance.proxy_intance[0]: Refreshing state... [id=i-03c7aa278b50eff89][0m
-[0m[1maws_instance.mysql_cluster_intances[2]: Refreshing state... [id=i-0acaa9be3d8556edd][0m
-[0m[1maws_instance.mysql_cluster_intances[3]: Refreshing state... [id=i-0e2ee3685c3c3ae7f][0m
-[0m[1maws_instance.mysql_standalone_intance[0]: Refreshing state... [id=i-0ab495cff35afca65][0m
-[0m[1maws_instance.mysql_cluster_intances[1]: Refreshing state... [id=i-064abaa31ed017a02][0m
+[0m[1maws_vpc.vpc: Refreshing state... [id=vpc-048c1f09ade95c8a7][0m
+[0m[1maws_subnet.cluster2_subnet: Refreshing state... [id=subnet-0e921a446432a42fb][0m
+[0m[1maws_subnet.cluster1_subnet: Refreshing state... [id=subnet-0e07a387fce6d99b5][0m
+[0m[1maws_internet_gateway.gw: Refreshing state... [id=igw-0586d3457d7769147][0m
+[0m[1maws_security_group.mysql_sg: Refreshing state... [id=sg-0e90b34c711ff8386][0m
+[0m[1maws_route_table.public_rt: Refreshing state... [id=rtb-03b7031075f452d2b][0m
+[0m[1maws_route_table_association.rt_a_cluster2: Refreshing state... [id=rtbassoc-00f3132ae4acaf544][0m
+[0m[1maws_route_table_association.rt_a_cluster1: Refreshing state... [id=rtbassoc-0b09bcbdac0f2948a][0m
 
 Terraform used the selected providers to generate the following execution
 plan. Resource actions are indicated with the following symbols:
@@ -19,494 +13,20 @@ plan. Resource actions are indicated with the following symbols:
 [0m
 Terraform will perform the following actions:
 
-[1m  # aws_instance.mysql_cluster_intances[0][0m will be [1m[31mdestroyed[0m[0m
-[0m  [31m-[0m[0m resource "aws_instance" "mysql_cluster_intances" {
-      [31m-[0m [0m[1m[0mami[0m[0m                                  = "ami-0a6b2839d44d781b2" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0marn[0m[0m                                  = "arn:aws:ec2:us-east-1:163211774078:instance/i-037847e4278f7fea0" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mavailability_zone[0m[0m                    = "us-east-1b" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_core_count[0m[0m                       = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_stop[0m[0m                     = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_termination[0m[0m              = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mebs_optimized[0m[0m                        = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mget_password_data[0m[0m                    = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mhibernation[0m[0m                          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                                   = "i-037847e4278f7fea0" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = "stop" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_state[0m[0m                       = "running" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_type[0m[0m                        = "t2.micro" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_address_count[0m[0m                   = 0 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_addresses[0m[0m                       = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mmonitoring[0m[0m                           = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = "eni-003ad7b29bc9b22e1" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_dns[0m[0m                          = "ip-10-0-2-83.ec2.internal" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_ip[0m[0m                           = "10.0.2.83" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mpublic_ip[0m[0m                            = "204.236.246.99" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecondary_private_ips[0m[0m                = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecurity_groups[0m[0m                      = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msource_dest_check[0m[0m                    = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msubnet_id[0m[0m                            = "subnet-0762cda7000d4ab35" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags[0m[0m                                 = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags_all[0m[0m                             = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtenancy[0m[0m                              = "default" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data[0m[0m                            = "d7dadb5b58e2a846dc02124cb838a0cac33c57a3" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = [
-          [31m-[0m [0m"sg-0a1aac10952990c2f",
-        ] [90m->[0m [0m[90mnull[0m[0m
-
-      [31m-[0m [0mcapacity_reservation_specification {
-          [31m-[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = "open" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mcredit_specification {
-          [31m-[0m [0m[1m[0mcpu_credits[0m[0m = "standard" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0menclave_options {
-          [31m-[0m [0m[1m[0menabled[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmaintenance_options {
-          [31m-[0m [0m[1m[0mauto_recovery[0m[0m = "default" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmetadata_options {
-          [31m-[0m [0m[1m[0mhttp_endpoint[0m[0m               = "enabled" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = 1 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_tokens[0m[0m                 = "optional" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0minstance_metadata_tags[0m[0m      = "disabled" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mprivate_dns_name_options {
-          [31m-[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhostname_type[0m[0m                        = "ip-name" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mroot_block_device {
-          [31m-[0m [0m[1m[0mdelete_on_termination[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mdevice_name[0m[0m           = "/dev/sda1" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mencrypted[0m[0m             = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0miops[0m[0m                  = 100 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mtags[0m[0m                  = {} [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mthroughput[0m[0m            = 0 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_id[0m[0m             = "vol-04f466cc18e1f6474" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_size[0m[0m           = 8 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_type[0m[0m           = "gp2" [90m->[0m [0m[90mnull[0m[0m
-        }
-    }
-
-[1m  # aws_instance.mysql_cluster_intances[1][0m will be [1m[31mdestroyed[0m[0m
-[0m  [31m-[0m[0m resource "aws_instance" "mysql_cluster_intances" {
-      [31m-[0m [0m[1m[0mami[0m[0m                                  = "ami-0a6b2839d44d781b2" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0marn[0m[0m                                  = "arn:aws:ec2:us-east-1:163211774078:instance/i-064abaa31ed017a02" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mavailability_zone[0m[0m                    = "us-east-1b" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_core_count[0m[0m                       = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_stop[0m[0m                     = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_termination[0m[0m              = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mebs_optimized[0m[0m                        = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mget_password_data[0m[0m                    = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mhibernation[0m[0m                          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                                   = "i-064abaa31ed017a02" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = "stop" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_state[0m[0m                       = "running" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_type[0m[0m                        = "t2.micro" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_address_count[0m[0m                   = 0 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_addresses[0m[0m                       = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mmonitoring[0m[0m                           = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = "eni-049adde0ef1c12940" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_dns[0m[0m                          = "ip-10-0-2-235.ec2.internal" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_ip[0m[0m                           = "10.0.2.235" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mpublic_ip[0m[0m                            = "100.24.51.122" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecondary_private_ips[0m[0m                = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecurity_groups[0m[0m                      = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msource_dest_check[0m[0m                    = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msubnet_id[0m[0m                            = "subnet-0762cda7000d4ab35" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags[0m[0m                                 = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags_all[0m[0m                             = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtenancy[0m[0m                              = "default" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data[0m[0m                            = "d7dadb5b58e2a846dc02124cb838a0cac33c57a3" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = [
-          [31m-[0m [0m"sg-0a1aac10952990c2f",
-        ] [90m->[0m [0m[90mnull[0m[0m
-
-      [31m-[0m [0mcapacity_reservation_specification {
-          [31m-[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = "open" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mcredit_specification {
-          [31m-[0m [0m[1m[0mcpu_credits[0m[0m = "standard" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0menclave_options {
-          [31m-[0m [0m[1m[0menabled[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmaintenance_options {
-          [31m-[0m [0m[1m[0mauto_recovery[0m[0m = "default" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmetadata_options {
-          [31m-[0m [0m[1m[0mhttp_endpoint[0m[0m               = "enabled" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = 1 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_tokens[0m[0m                 = "optional" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0minstance_metadata_tags[0m[0m      = "disabled" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mprivate_dns_name_options {
-          [31m-[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhostname_type[0m[0m                        = "ip-name" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mroot_block_device {
-          [31m-[0m [0m[1m[0mdelete_on_termination[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mdevice_name[0m[0m           = "/dev/sda1" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mencrypted[0m[0m             = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0miops[0m[0m                  = 100 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mtags[0m[0m                  = {} [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mthroughput[0m[0m            = 0 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_id[0m[0m             = "vol-0772f9cd464c40c60" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_size[0m[0m           = 8 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_type[0m[0m           = "gp2" [90m->[0m [0m[90mnull[0m[0m
-        }
-    }
-
-[1m  # aws_instance.mysql_cluster_intances[2][0m will be [1m[31mdestroyed[0m[0m
-[0m  [31m-[0m[0m resource "aws_instance" "mysql_cluster_intances" {
-      [31m-[0m [0m[1m[0mami[0m[0m                                  = "ami-0a6b2839d44d781b2" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0marn[0m[0m                                  = "arn:aws:ec2:us-east-1:163211774078:instance/i-0acaa9be3d8556edd" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mavailability_zone[0m[0m                    = "us-east-1b" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_core_count[0m[0m                       = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_stop[0m[0m                     = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_termination[0m[0m              = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mebs_optimized[0m[0m                        = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mget_password_data[0m[0m                    = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mhibernation[0m[0m                          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                                   = "i-0acaa9be3d8556edd" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = "stop" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_state[0m[0m                       = "running" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_type[0m[0m                        = "t2.micro" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_address_count[0m[0m                   = 0 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_addresses[0m[0m                       = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mmonitoring[0m[0m                           = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = "eni-00f5151fc2849398f" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_dns[0m[0m                          = "ip-10-0-2-56.ec2.internal" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_ip[0m[0m                           = "10.0.2.56" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mpublic_ip[0m[0m                            = "3.81.134.164" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecondary_private_ips[0m[0m                = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecurity_groups[0m[0m                      = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msource_dest_check[0m[0m                    = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msubnet_id[0m[0m                            = "subnet-0762cda7000d4ab35" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags[0m[0m                                 = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags_all[0m[0m                             = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtenancy[0m[0m                              = "default" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data[0m[0m                            = "d7dadb5b58e2a846dc02124cb838a0cac33c57a3" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = [
-          [31m-[0m [0m"sg-0a1aac10952990c2f",
-        ] [90m->[0m [0m[90mnull[0m[0m
-
-      [31m-[0m [0mcapacity_reservation_specification {
-          [31m-[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = "open" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mcredit_specification {
-          [31m-[0m [0m[1m[0mcpu_credits[0m[0m = "standard" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0menclave_options {
-          [31m-[0m [0m[1m[0menabled[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmaintenance_options {
-          [31m-[0m [0m[1m[0mauto_recovery[0m[0m = "default" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmetadata_options {
-          [31m-[0m [0m[1m[0mhttp_endpoint[0m[0m               = "enabled" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = 1 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_tokens[0m[0m                 = "optional" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0minstance_metadata_tags[0m[0m      = "disabled" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mprivate_dns_name_options {
-          [31m-[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhostname_type[0m[0m                        = "ip-name" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mroot_block_device {
-          [31m-[0m [0m[1m[0mdelete_on_termination[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mdevice_name[0m[0m           = "/dev/sda1" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mencrypted[0m[0m             = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0miops[0m[0m                  = 100 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mtags[0m[0m                  = {} [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mthroughput[0m[0m            = 0 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_id[0m[0m             = "vol-005355c044fef6552" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_size[0m[0m           = 8 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_type[0m[0m           = "gp2" [90m->[0m [0m[90mnull[0m[0m
-        }
-    }
-
-[1m  # aws_instance.mysql_cluster_intances[3][0m will be [1m[31mdestroyed[0m[0m
-[0m  [31m-[0m[0m resource "aws_instance" "mysql_cluster_intances" {
-      [31m-[0m [0m[1m[0mami[0m[0m                                  = "ami-0a6b2839d44d781b2" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0marn[0m[0m                                  = "arn:aws:ec2:us-east-1:163211774078:instance/i-0e2ee3685c3c3ae7f" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mavailability_zone[0m[0m                    = "us-east-1b" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_core_count[0m[0m                       = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_stop[0m[0m                     = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_termination[0m[0m              = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mebs_optimized[0m[0m                        = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mget_password_data[0m[0m                    = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mhibernation[0m[0m                          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                                   = "i-0e2ee3685c3c3ae7f" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = "stop" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_state[0m[0m                       = "running" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_type[0m[0m                        = "t2.micro" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_address_count[0m[0m                   = 0 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_addresses[0m[0m                       = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mmonitoring[0m[0m                           = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = "eni-0b12dbfaaf13c975e" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_dns[0m[0m                          = "ip-10-0-2-54.ec2.internal" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_ip[0m[0m                           = "10.0.2.54" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mpublic_ip[0m[0m                            = "3.85.7.53" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecondary_private_ips[0m[0m                = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecurity_groups[0m[0m                      = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msource_dest_check[0m[0m                    = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msubnet_id[0m[0m                            = "subnet-0762cda7000d4ab35" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags[0m[0m                                 = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags_all[0m[0m                             = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtenancy[0m[0m                              = "default" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data[0m[0m                            = "d7dadb5b58e2a846dc02124cb838a0cac33c57a3" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = [
-          [31m-[0m [0m"sg-0a1aac10952990c2f",
-        ] [90m->[0m [0m[90mnull[0m[0m
-
-      [31m-[0m [0mcapacity_reservation_specification {
-          [31m-[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = "open" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mcredit_specification {
-          [31m-[0m [0m[1m[0mcpu_credits[0m[0m = "standard" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0menclave_options {
-          [31m-[0m [0m[1m[0menabled[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmaintenance_options {
-          [31m-[0m [0m[1m[0mauto_recovery[0m[0m = "default" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmetadata_options {
-          [31m-[0m [0m[1m[0mhttp_endpoint[0m[0m               = "enabled" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = 1 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_tokens[0m[0m                 = "optional" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0minstance_metadata_tags[0m[0m      = "disabled" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mprivate_dns_name_options {
-          [31m-[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhostname_type[0m[0m                        = "ip-name" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mroot_block_device {
-          [31m-[0m [0m[1m[0mdelete_on_termination[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mdevice_name[0m[0m           = "/dev/sda1" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mencrypted[0m[0m             = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0miops[0m[0m                  = 100 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mtags[0m[0m                  = {} [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mthroughput[0m[0m            = 0 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_id[0m[0m             = "vol-09c993aeb5277b20c" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_size[0m[0m           = 8 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_type[0m[0m           = "gp2" [90m->[0m [0m[90mnull[0m[0m
-        }
-    }
-
-[1m  # aws_instance.mysql_standalone_intance[0][0m will be [1m[31mdestroyed[0m[0m
-[0m  [31m-[0m[0m resource "aws_instance" "mysql_standalone_intance" {
-      [31m-[0m [0m[1m[0mami[0m[0m                                  = "ami-0a6b2839d44d781b2" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0marn[0m[0m                                  = "arn:aws:ec2:us-east-1:163211774078:instance/i-0ab495cff35afca65" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mavailability_zone[0m[0m                    = "us-east-1b" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_core_count[0m[0m                       = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_stop[0m[0m                     = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_termination[0m[0m              = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mebs_optimized[0m[0m                        = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mget_password_data[0m[0m                    = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mhibernation[0m[0m                          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                                   = "i-0ab495cff35afca65" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = "stop" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_state[0m[0m                       = "running" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_type[0m[0m                        = "t2.micro" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_address_count[0m[0m                   = 0 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_addresses[0m[0m                       = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mmonitoring[0m[0m                           = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = "eni-0ddaed5adabe4892d" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_dns[0m[0m                          = "ip-10-0-2-223.ec2.internal" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_ip[0m[0m                           = "10.0.2.223" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mpublic_ip[0m[0m                            = "184.73.25.164" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecondary_private_ips[0m[0m                = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecurity_groups[0m[0m                      = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msource_dest_check[0m[0m                    = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msubnet_id[0m[0m                            = "subnet-0762cda7000d4ab35" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags[0m[0m                                 = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags_all[0m[0m                             = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtenancy[0m[0m                              = "default" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data[0m[0m                            = "d7dadb5b58e2a846dc02124cb838a0cac33c57a3" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = [
-          [31m-[0m [0m"sg-0a1aac10952990c2f",
-        ] [90m->[0m [0m[90mnull[0m[0m
-
-      [31m-[0m [0mcapacity_reservation_specification {
-          [31m-[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = "open" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mcredit_specification {
-          [31m-[0m [0m[1m[0mcpu_credits[0m[0m = "standard" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0menclave_options {
-          [31m-[0m [0m[1m[0menabled[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmaintenance_options {
-          [31m-[0m [0m[1m[0mauto_recovery[0m[0m = "default" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmetadata_options {
-          [31m-[0m [0m[1m[0mhttp_endpoint[0m[0m               = "enabled" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = 1 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_tokens[0m[0m                 = "optional" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0minstance_metadata_tags[0m[0m      = "disabled" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mprivate_dns_name_options {
-          [31m-[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhostname_type[0m[0m                        = "ip-name" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mroot_block_device {
-          [31m-[0m [0m[1m[0mdelete_on_termination[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mdevice_name[0m[0m           = "/dev/sda1" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mencrypted[0m[0m             = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0miops[0m[0m                  = 100 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mtags[0m[0m                  = {} [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mthroughput[0m[0m            = 0 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_id[0m[0m             = "vol-0317fec076ee75997" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_size[0m[0m           = 8 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_type[0m[0m           = "gp2" [90m->[0m [0m[90mnull[0m[0m
-        }
-    }
-
-[1m  # aws_instance.proxy_intance[0][0m will be [1m[31mdestroyed[0m[0m
-[0m  [31m-[0m[0m resource "aws_instance" "proxy_intance" {
-      [31m-[0m [0m[1m[0mami[0m[0m                                  = "ami-0a6b2839d44d781b2" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0marn[0m[0m                                  = "arn:aws:ec2:us-east-1:163211774078:instance/i-03c7aa278b50eff89" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0massociate_public_ip_address[0m[0m          = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mavailability_zone[0m[0m                    = "us-east-1b" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_core_count[0m[0m                       = 2 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mcpu_threads_per_core[0m[0m                 = 1 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_stop[0m[0m                     = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdisable_api_termination[0m[0m              = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mebs_optimized[0m[0m                        = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mget_password_data[0m[0m                    = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mhibernation[0m[0m                          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                                   = "i-03c7aa278b50eff89" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_initiated_shutdown_behavior[0m[0m = "stop" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_state[0m[0m                       = "running" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0minstance_type[0m[0m                        = "t2.large" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_address_count[0m[0m                   = 0 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mipv6_addresses[0m[0m                       = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mmonitoring[0m[0m                           = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprimary_network_interface_id[0m[0m         = "eni-0a96950a6b9a51a75" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_dns[0m[0m                          = "ip-10-0-2-181.ec2.internal" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mprivate_ip[0m[0m                           = "10.0.2.181" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mpublic_ip[0m[0m                            = "18.232.80.48" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecondary_private_ips[0m[0m                = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msecurity_groups[0m[0m                      = [] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msource_dest_check[0m[0m                    = true [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msubnet_id[0m[0m                            = "subnet-0762cda7000d4ab35" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags[0m[0m                                 = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtags_all[0m[0m                             = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mtenancy[0m[0m                              = "default" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data[0m[0m                            = "d7dadb5b58e2a846dc02124cb838a0cac33c57a3" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0muser_data_replace_on_change[0m[0m          = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_security_group_ids[0m[0m               = [
-          [31m-[0m [0m"sg-0a1aac10952990c2f",
-        ] [90m->[0m [0m[90mnull[0m[0m
-
-      [31m-[0m [0mcapacity_reservation_specification {
-          [31m-[0m [0m[1m[0mcapacity_reservation_preference[0m[0m = "open" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mcredit_specification {
-          [31m-[0m [0m[1m[0mcpu_credits[0m[0m = "standard" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0menclave_options {
-          [31m-[0m [0m[1m[0menabled[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmaintenance_options {
-          [31m-[0m [0m[1m[0mauto_recovery[0m[0m = "default" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mmetadata_options {
-          [31m-[0m [0m[1m[0mhttp_endpoint[0m[0m               = "enabled" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_put_response_hop_limit[0m[0m = 1 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhttp_tokens[0m[0m                 = "optional" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0minstance_metadata_tags[0m[0m      = "disabled" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mprivate_dns_name_options {
-          [31m-[0m [0m[1m[0menable_resource_name_dns_a_record[0m[0m    = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0menable_resource_name_dns_aaaa_record[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mhostname_type[0m[0m                        = "ip-name" [90m->[0m [0m[90mnull[0m[0m
-        }
-
-      [31m-[0m [0mroot_block_device {
-          [31m-[0m [0m[1m[0mdelete_on_termination[0m[0m = true [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mdevice_name[0m[0m           = "/dev/sda1" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mencrypted[0m[0m             = false [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0miops[0m[0m                  = 100 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mtags[0m[0m                  = {} [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mthroughput[0m[0m            = 0 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_id[0m[0m             = "vol-0122d6cf954c71eea" [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_size[0m[0m           = 8 [90m->[0m [0m[90mnull[0m[0m
-          [31m-[0m [0m[1m[0mvolume_type[0m[0m           = "gp2" [90m->[0m [0m[90mnull[0m[0m
-        }
-    }
-
 [1m  # aws_internet_gateway.gw[0m will be [1m[31mdestroyed[0m[0m
 [0m  [31m-[0m[0m resource "aws_internet_gateway" "gw" {
-      [31m-[0m [0m[1m[0marn[0m[0m      = "arn:aws:ec2:us-east-1:163211774078:internet-gateway/igw-06ae1fde1695b6e9c" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m       = "igw-06ae1fde1695b6e9c" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0marn[0m[0m      = "arn:aws:ec2:us-east-1:163211774078:internet-gateway/igw-0586d3457d7769147" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m       = "igw-0586d3457d7769147" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mowner_id[0m[0m = "163211774078" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags[0m[0m     = {} [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags_all[0m[0m = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_id[0m[0m   = "vpc-0f9846de5d06d7a89" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mvpc_id[0m[0m   = "vpc-048c1f09ade95c8a7" [90m->[0m [0m[90mnull[0m[0m
     }
 
 [1m  # aws_route_table.public_rt[0m will be [1m[31mdestroyed[0m[0m
 [0m  [31m-[0m[0m resource "aws_route_table" "public_rt" {
-      [31m-[0m [0m[1m[0marn[0m[0m              = "arn:aws:ec2:us-east-1:163211774078:route-table/rtb-0e90375b0b785a7c9" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m               = "rtb-0e90375b0b785a7c9" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0marn[0m[0m              = "arn:aws:ec2:us-east-1:163211774078:route-table/rtb-03b7031075f452d2b" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m               = "rtb-03b7031075f452d2b" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mowner_id[0m[0m         = "163211774078" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mpropagating_vgws[0m[0m = [] [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mroute[0m[0m            = [
@@ -516,7 +36,7 @@ Terraform will perform the following actions:
               [31m-[0m [0mcore_network_arn           = ""
               [31m-[0m [0mdestination_prefix_list_id = ""
               [31m-[0m [0megress_only_gateway_id     = ""
-              [31m-[0m [0mgateway_id                 = "igw-06ae1fde1695b6e9c"
+              [31m-[0m [0mgateway_id                 = "igw-0586d3457d7769147"
               [31m-[0m [0minstance_id                = ""
               [31m-[0m [0mipv6_cidr_block            = "::/0"
               [31m-[0m [0mlocal_gateway_id           = ""
@@ -532,7 +52,7 @@ Terraform will perform the following actions:
               [31m-[0m [0mcore_network_arn           = ""
               [31m-[0m [0mdestination_prefix_list_id = ""
               [31m-[0m [0megress_only_gateway_id     = ""
-              [31m-[0m [0mgateway_id                 = "igw-06ae1fde1695b6e9c"
+              [31m-[0m [0mgateway_id                 = "igw-0586d3457d7769147"
               [31m-[0m [0minstance_id                = ""
               [31m-[0m [0mipv6_cidr_block            = ""
               [31m-[0m [0mlocal_gateway_id           = ""
@@ -549,26 +69,26 @@ Terraform will perform the following actions:
       [31m-[0m [0m[1m[0mtags_all[0m[0m         = {
           [31m-[0m [0m"Name" = "Public Route Table"
         } [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_id[0m[0m           = "vpc-0f9846de5d06d7a89" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mvpc_id[0m[0m           = "vpc-048c1f09ade95c8a7" [90m->[0m [0m[90mnull[0m[0m
     }
 
 [1m  # aws_route_table_association.rt_a_cluster1[0m will be [1m[31mdestroyed[0m[0m
 [0m  [31m-[0m[0m resource "aws_route_table_association" "rt_a_cluster1" {
-      [31m-[0m [0m[1m[0mid[0m[0m             = "rtbassoc-0d7f27eae0245618a" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mroute_table_id[0m[0m = "rtb-0e90375b0b785a7c9" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msubnet_id[0m[0m      = "subnet-093e0a2a7e557be67" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m             = "rtbassoc-0b09bcbdac0f2948a" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mroute_table_id[0m[0m = "rtb-03b7031075f452d2b" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0msubnet_id[0m[0m      = "subnet-0e07a387fce6d99b5" [90m->[0m [0m[90mnull[0m[0m
     }
 
 [1m  # aws_route_table_association.rt_a_cluster2[0m will be [1m[31mdestroyed[0m[0m
 [0m  [31m-[0m[0m resource "aws_route_table_association" "rt_a_cluster2" {
-      [31m-[0m [0m[1m[0mid[0m[0m             = "rtbassoc-016afa1db7fdd7939" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mroute_table_id[0m[0m = "rtb-0e90375b0b785a7c9" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0msubnet_id[0m[0m      = "subnet-0762cda7000d4ab35" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m             = "rtbassoc-00f3132ae4acaf544" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mroute_table_id[0m[0m = "rtb-03b7031075f452d2b" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0msubnet_id[0m[0m      = "subnet-0e921a446432a42fb" [90m->[0m [0m[90mnull[0m[0m
     }
 
 [1m  # aws_security_group.mysql_sg[0m will be [1m[31mdestroyed[0m[0m
 [0m  [31m-[0m[0m resource "aws_security_group" "mysql_sg" {
-      [31m-[0m [0m[1m[0marn[0m[0m                    = "arn:aws:ec2:us-east-1:163211774078:security-group/sg-0a1aac10952990c2f" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0marn[0m[0m                    = "arn:aws:ec2:us-east-1:163211774078:security-group/sg-0e90b34c711ff8386" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mdescription[0m[0m            = "Managed by Terraform" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0megress[0m[0m                 = [
           [31m-[0m [0m{
@@ -585,7 +105,7 @@ Terraform will perform the following actions:
               [31m-[0m [0mto_port          = 0
             },
         ] [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                     = "sg-0a1aac10952990c2f" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                     = "sg-0e90b34c711ff8386" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mingress[0m[0m                = [
           [31m-[0m [0m{
               [31m-[0m [0mcidr_blocks      = [
@@ -619,12 +139,12 @@ Terraform will perform the following actions:
       [31m-[0m [0m[1m[0mrevoke_rules_on_delete[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags[0m[0m                   = {} [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags_all[0m[0m               = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_id[0m[0m                 = "vpc-0f9846de5d06d7a89" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mvpc_id[0m[0m                 = "vpc-048c1f09ade95c8a7" [90m->[0m [0m[90mnull[0m[0m
     }
 
 [1m  # aws_subnet.cluster1_subnet[0m will be [1m[31mdestroyed[0m[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "cluster1_subnet" {
-      [31m-[0m [0m[1m[0marn[0m[0m                                            = "arn:aws:ec2:us-east-1:163211774078:subnet/subnet-093e0a2a7e557be67" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0marn[0m[0m                                            = "arn:aws:ec2:us-east-1:163211774078:subnet/subnet-0e07a387fce6d99b5" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1a" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mavailability_zone_id[0m[0m                           = "use1-az4" [90m->[0m [0m[90mnull[0m[0m
@@ -632,7 +152,7 @@ Terraform will perform the following actions:
       [31m-[0m [0m[1m[0menable_dns64[0m[0m                                   = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                                             = "subnet-093e0a2a7e557be67" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                                             = "subnet-0e07a387fce6d99b5" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mipv6_native[0m[0m                                    = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mmap_customer_owned_ip_on_launch[0m[0m                = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false [90m->[0m [0m[90mnull[0m[0m
@@ -640,12 +160,12 @@ Terraform will perform the following actions:
       [31m-[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = "ip-name" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags[0m[0m                                           = {} [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags_all[0m[0m                                       = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_id[0m[0m                                         = "vpc-0f9846de5d06d7a89" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mvpc_id[0m[0m                                         = "vpc-048c1f09ade95c8a7" [90m->[0m [0m[90mnull[0m[0m
     }
 
 [1m  # aws_subnet.cluster2_subnet[0m will be [1m[31mdestroyed[0m[0m
 [0m  [31m-[0m[0m resource "aws_subnet" "cluster2_subnet" {
-      [31m-[0m [0m[1m[0marn[0m[0m                                            = "arn:aws:ec2:us-east-1:163211774078:subnet/subnet-0762cda7000d4ab35" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0marn[0m[0m                                            = "arn:aws:ec2:us-east-1:163211774078:subnet/subnet-0e921a446432a42fb" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0massign_ipv6_address_on_creation[0m[0m                = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mavailability_zone[0m[0m                              = "us-east-1b" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mavailability_zone_id[0m[0m                           = "use1-az6" [90m->[0m [0m[90mnull[0m[0m
@@ -653,7 +173,7 @@ Terraform will perform the following actions:
       [31m-[0m [0m[1m[0menable_dns64[0m[0m                                   = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0menable_resource_name_dns_a_record_on_launch[0m[0m    = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0menable_resource_name_dns_aaaa_record_on_launch[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                                             = "subnet-0762cda7000d4ab35" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                                             = "subnet-0e921a446432a42fb" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mipv6_native[0m[0m                                    = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mmap_customer_owned_ip_on_launch[0m[0m                = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mmap_public_ip_on_launch[0m[0m                        = false [90m->[0m [0m[90mnull[0m[0m
@@ -661,83 +181,49 @@ Terraform will perform the following actions:
       [31m-[0m [0m[1m[0mprivate_dns_hostname_type_on_launch[0m[0m            = "ip-name" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags[0m[0m                                           = {} [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags_all[0m[0m                                       = {} [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mvpc_id[0m[0m                                         = "vpc-0f9846de5d06d7a89" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mvpc_id[0m[0m                                         = "vpc-048c1f09ade95c8a7" [90m->[0m [0m[90mnull[0m[0m
     }
 
 [1m  # aws_vpc.vpc[0m will be [1m[31mdestroyed[0m[0m
 [0m  [31m-[0m[0m resource "aws_vpc" "vpc" {
-      [31m-[0m [0m[1m[0marn[0m[0m                                  = "arn:aws:ec2:us-east-1:163211774078:vpc/vpc-0f9846de5d06d7a89" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0marn[0m[0m                                  = "arn:aws:ec2:us-east-1:163211774078:vpc/vpc-048c1f09ade95c8a7" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0massign_generated_ipv6_cidr_block[0m[0m     = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mcidr_block[0m[0m                           = "10.0.0.0/16" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdefault_network_acl_id[0m[0m               = "acl-039393609647265f0" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdefault_route_table_id[0m[0m               = "rtb-08ca3da91ad72ea5d" [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mdefault_security_group_id[0m[0m            = "sg-0f736869f3eaaa4c7" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdefault_network_acl_id[0m[0m               = "acl-09dfe87397a68c89f" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdefault_route_table_id[0m[0m               = "rtb-0ef1f3e95ddc71b5f" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mdefault_security_group_id[0m[0m            = "sg-09f9548a0374926c6" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mdhcp_options_id[0m[0m                      = "dopt-0eb54bed429ab310d" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0menable_classiclink[0m[0m                   = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0menable_classiclink_dns_support[0m[0m       = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0menable_dns_hostnames[0m[0m                 = false [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0menable_dns_support[0m[0m                   = true [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0menable_network_address_usage_metrics[0m[0m = false [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mid[0m[0m                                   = "vpc-0f9846de5d06d7a89" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mid[0m[0m                                   = "vpc-048c1f09ade95c8a7" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0minstance_tenancy[0m[0m                     = "default" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mipv6_netmask_length[0m[0m                  = 0 [90m->[0m [0m[90mnull[0m[0m
-      [31m-[0m [0m[1m[0mmain_route_table_id[0m[0m                  = "rtb-08ca3da91ad72ea5d" [90m->[0m [0m[90mnull[0m[0m
+      [31m-[0m [0m[1m[0mmain_route_table_id[0m[0m                  = "rtb-0ef1f3e95ddc71b5f" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mowner_id[0m[0m                             = "163211774078" [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags[0m[0m                                 = {} [90m->[0m [0m[90mnull[0m[0m
       [31m-[0m [0m[1m[0mtags_all[0m[0m                             = {} [90m->[0m [0m[90mnull[0m[0m
     }
 
-[0m[1mPlan:[0m 0 to add, 0 to change, 14 to destroy.
-[0m[0m[1maws_route_table_association.rt_a_cluster2: Destroying... [id=rtbassoc-016afa1db7fdd7939][0m[0m
-[0m[1maws_route_table_association.rt_a_cluster1: Destroying... [id=rtbassoc-0d7f27eae0245618a][0m[0m
-[0m[1maws_instance.mysql_standalone_intance[0]: Destroying... [id=i-0ab495cff35afca65][0m[0m
-[0m[1maws_instance.proxy_intance[0]: Destroying... [id=i-03c7aa278b50eff89][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[3]: Destroying... [id=i-0e2ee3685c3c3ae7f][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[1]: Destroying... [id=i-064abaa31ed017a02][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[0]: Destroying... [id=i-037847e4278f7fea0][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[2]: Destroying... [id=i-0acaa9be3d8556edd][0m[0m
-[0m[1maws_route_table_association.rt_a_cluster1: Destruction complete after 0s[0m
-[0m[1maws_subnet.cluster1_subnet: Destroying... [id=subnet-093e0a2a7e557be67][0m[0m
-[0m[1maws_route_table_association.rt_a_cluster2: Destruction complete after 0s[0m
-[0m[1maws_route_table.public_rt: Destroying... [id=rtb-0e90375b0b785a7c9][0m[0m
-[0m[1maws_subnet.cluster1_subnet: Destruction complete after 1s[0m
-[0m[1maws_route_table.public_rt: Destruction complete after 1s[0m
-[0m[1maws_internet_gateway.gw: Destroying... [id=igw-06ae1fde1695b6e9c][0m[0m
-[0m[1maws_instance.mysql_standalone_intance[0]: Still destroying... [id=i-0ab495cff35afca65, 10s elapsed][0m[0m
-[0m[1maws_instance.proxy_intance[0]: Still destroying... [id=i-03c7aa278b50eff89, 10s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[3]: Still destroying... [id=i-0e2ee3685c3c3ae7f, 10s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[1]: Still destroying... [id=i-064abaa31ed017a02, 10s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[2]: Still destroying... [id=i-0acaa9be3d8556edd, 10s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[0]: Still destroying... [id=i-037847e4278f7fea0, 10s elapsed][0m[0m
-[0m[1maws_internet_gateway.gw: Still destroying... [id=igw-06ae1fde1695b6e9c, 10s elapsed][0m[0m
-[0m[1maws_instance.mysql_standalone_intance[0]: Still destroying... [id=i-0ab495cff35afca65, 20s elapsed][0m[0m
-[0m[1maws_instance.proxy_intance[0]: Still destroying... [id=i-03c7aa278b50eff89, 20s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[3]: Still destroying... [id=i-0e2ee3685c3c3ae7f, 20s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[1]: Still destroying... [id=i-064abaa31ed017a02, 20s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[0]: Still destroying... [id=i-037847e4278f7fea0, 20s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[2]: Still destroying... [id=i-0acaa9be3d8556edd, 20s elapsed][0m[0m
-[0m[1maws_internet_gateway.gw: Still destroying... [id=igw-06ae1fde1695b6e9c, 20s elapsed][0m[0m
-[0m[1maws_internet_gateway.gw: Destruction complete after 28s[0m
-[0m[1maws_instance.mysql_standalone_intance[0]: Still destroying... [id=i-0ab495cff35afca65, 30s elapsed][0m[0m
-[0m[1maws_instance.proxy_intance[0]: Still destroying... [id=i-03c7aa278b50eff89, 30s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[1]: Still destroying... [id=i-064abaa31ed017a02, 30s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[3]: Still destroying... [id=i-0e2ee3685c3c3ae7f, 30s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[2]: Still destroying... [id=i-0acaa9be3d8556edd, 30s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[0]: Still destroying... [id=i-037847e4278f7fea0, 30s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[3]: Destruction complete after 30s[0m
-[0m[1maws_instance.mysql_cluster_intances[1]: Destruction complete after 30s[0m
-[0m[1maws_instance.mysql_cluster_intances[2]: Destruction complete after 30s[0m
-[0m[1maws_instance.mysql_standalone_intance[0]: Destruction complete after 30s[0m
-[0m[1maws_instance.proxy_intance[0]: Still destroying... [id=i-03c7aa278b50eff89, 40s elapsed][0m[0m
-[0m[1maws_instance.mysql_cluster_intances[0]: Still destroying... [id=i-037847e4278f7fea0, 40s elapsed][0m[0m
-[0m[1maws_instance.proxy_intance[0]: Destruction complete after 40s[0m
-[0m[1maws_instance.mysql_cluster_intances[0]: Destruction complete after 41s[0m
-[0m[1maws_subnet.cluster2_subnet: Destroying... [id=subnet-0762cda7000d4ab35][0m[0m
-[0m[1maws_security_group.mysql_sg: Destroying... [id=sg-0a1aac10952990c2f][0m[0m
-[0m[1maws_subnet.cluster2_subnet: Destruction complete after 0s[0m
+[0m[1mPlan:[0m 0 to add, 0 to change, 8 to destroy.
+[0m[0m[1maws_route_table_association.rt_a_cluster2: Destroying... [id=rtbassoc-00f3132ae4acaf544][0m[0m
+[0m[1maws_route_table_association.rt_a_cluster1: Destroying... [id=rtbassoc-0b09bcbdac0f2948a][0m[0m
+[0m[1maws_security_group.mysql_sg: Destroying... [id=sg-0e90b34c711ff8386][0m[0m
+[0m[1maws_route_table_association.rt_a_cluster2: Destruction complete after 1s[0m
+[0m[1maws_subnet.cluster2_subnet: Destroying... [id=subnet-0e921a446432a42fb][0m[0m
+[0m[1maws_route_table_association.rt_a_cluster1: Destruction complete after 1s[0m
+[0m[1maws_subnet.cluster1_subnet: Destroying... [id=subnet-0e07a387fce6d99b5][0m[0m
+[0m[1maws_route_table.public_rt: Destroying... [id=rtb-03b7031075f452d2b][0m[0m
+[0m[1maws_subnet.cluster1_subnet: Destruction complete after 0s[0m
 [0m[1maws_security_group.mysql_sg: Destruction complete after 1s[0m
-[0m[1maws_vpc.vpc: Destroying... [id=vpc-0f9846de5d06d7a89][0m[0m
+[0m[1maws_route_table.public_rt: Destruction complete after 0s[0m
+[0m[1maws_internet_gateway.gw: Destroying... [id=igw-0586d3457d7769147][0m[0m
+[0m[1maws_subnet.cluster2_subnet: Destruction complete after 1s[0m
+[0m[1maws_internet_gateway.gw: Destruction complete after 0s[0m
+[0m[1maws_vpc.vpc: Destroying... [id=vpc-048c1f09ade95c8a7][0m[0m
 [0m[1maws_vpc.vpc: Destruction complete after 1s[0m
 [0m[1m[32m
-Destroy complete! Resources: 14 destroyed.
+Destroy complete! Resources: 8 destroyed.
 [0m

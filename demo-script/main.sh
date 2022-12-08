@@ -10,31 +10,61 @@
 cd "$(dirname "$0")"
 
 # AWS credentials configuration
-echo AWS Access Key ID:
-read aws_access_key_id
-
-echo AWS Secret Access Key:
-read aws_secret_access_key
-
-echo AWS Session Token:
-read aws_session_token
-
-aws configure set aws_access_key_id $aws_access_key_id
-aws configure set aws_secret_access_key $aws_secret_access_key
-aws configure set aws_session_token $aws_session_token
+echo "Make sure that the AWS credentials is correctly configured. The file is ~/.aws/credentials"
+read -p "Press [Enter] to continue" cont
+printf "\n"
 
 # Terraform deploying AWS Infrastructure
-cd ../instance-creation
-terraform init
-terraform apply -auto-approve
+read -p  "Do you want to deploy the necessary AWS intances? [Y/n] " deploy
+printf "\n"
 
-# Waitng for instances set up
-sleep 180
+if [ -z "$deploy" ];
+then
+    deploy="y"
+fi
+
+if [ $deploy = "y" ] || [ $deploy = "Y" ];
+then
+    cd ../instance-creation
+    terraform init
+    terraform apply -auto-approve
+
+    # Waitng for instances set up
+    echo "Waiting 3 minutes for instances start up..." 
+    printf "\n"
+    sleep 180
+
+    echo "Make sure to install and configure MySQL standalone and MySQL Saikila cluster on the right instances"
+    read -p "Press [Enter] to continue" cont
+    printf "\n"
+else
+    echo "Not creating new instances, make sure you have instances already running and configured"
+    read -p "Press [Enter] to continue" cont
+fi
+
+#Execution of the benchmark
+read -p "Press [Enter] to start database benchmark" cont
+
+#Proxy Evaluation
+read -p "Press [Enter] to start cloud pattern benchmark" cont
+
 
 # Terraform cleaning up instances
-cd ../instance-creation
-echo Cleaning instances...
-rm -f destroy.txt
-terraform destroy -auto-approve > destroy.txt
-echo Done!
-cd ..
+read -p  "Do you want to terminate the deployed AWS intances? [Y/n] " terminate
+printf "\n"
+
+if [ -z "$terminate" ];
+then
+    terminate="y"
+fi
+
+if [ $terminate = "y" ] || [ $terminate = "Y" ];
+then
+    cd ../instance-creation
+    echo Cleaning instances...
+    rm -f destroy.txt
+    terraform destroy -auto-approve > destroy.txt
+    echo Done!
+else
+    echo "Not removing instances, make sure to pause them when you are done working"
+fi
