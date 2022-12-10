@@ -6,7 +6,7 @@
 # Terraform configuration relative to instance definitions
 
 # Declaring 1 t2 micro instance to host MySQL standalone
-resource "aws_instance" "mysql_standalone_intance" {
+resource "aws_instance" "mysql_standalone_instance" {
   count                       = 1
   ami                         = "ami-0a6b2839d44d781b2"
   instance_type               = "t2.micro"
@@ -23,7 +23,7 @@ resource "aws_instance" "mysql_standalone_intance" {
 
 
 # Declaring 4 t2 micro instance to be part of the MySQL cluster
-resource "aws_instance" "mysql_cluster_intances" {
+resource "aws_instance" "mysql_cluster_instances" {
   count                       = 4
   ami                         = "ami-0a6b2839d44d781b2"
   instance_type               = "t2.micro"
@@ -33,12 +33,12 @@ resource "aws_instance" "mysql_cluster_intances" {
   vpc_security_group_ids = [aws_security_group.mysql_sg.id]
   key_name = "final_project"
   tags = {
-    Name = "MySQL Cluster Standalone ${count.index}"
+    Name = "MySQL Cluster ${count.index}"
   }
 }
 
 # Declaring 1 t2 large instance to be the proxy
-resource "aws_instance" "proxy_intance" {
+resource "aws_instance" "proxy_instance" {
   count                       = 1
   ami                         = "ami-0a6b2839d44d781b2"
   instance_type               = "t2.large"
