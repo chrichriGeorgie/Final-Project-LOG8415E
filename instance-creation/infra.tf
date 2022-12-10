@@ -12,35 +12,42 @@ resource "aws_instance" "mysql_standalone_intance" {
   instance_type               = "t2.micro"
   associate_public_ip_address = true
   user_data = templatefile("./userdata/standalone-config.tftpl", {})
-  subnet_id              = aws_subnet.cluster2_subnet.id
+  subnet_id              = aws_subnet.standalone_net.id
   vpc_security_group_ids = [aws_security_group.mysql_sg.id]
-  key_name = "test"
+  key_name = "final_project"
   tags = {
-    Name = "Standalone"
+    Name = "MySQL Standalone"
   }
 }
 
-#
-#
-## Declaring 4 t2 micro instance to be part of the MySQL cluster
-#resource "aws_instance" "mysql_cluster_intances" {
-#  count                       = 4
-#  ami                         = "ami-0a6b2839d44d781b2"
-#  instance_type               = "t2.micro"
-#  associate_public_ip_address = true
-#  user_data = templatefile("./userdata/instance-config.sh.tftpl", {})
-#  subnet_id              = aws_subnet.cluster2_subnet.id
-#  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
-#}
-#
-## Declaring 1 t2 large instance to be the proxy
-#resource "aws_instance" "proxy_intance" {
-#  count                       = 1
-#  ami                         = "ami-0a6b2839d44d781b2"
-#  instance_type               = "t2.large"
-#  associate_public_ip_address = true
-#  user_data = templatefile("./userdata/instance-config.sh.tftpl", {})
-#  subnet_id              = aws_subnet.cluster2_subnet.id
-#  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
-#}
-#
+
+
+# Declaring 4 t2 micro instance to be part of the MySQL cluster
+resource "aws_instance" "mysql_cluster_intances" {
+  count                       = 4
+  ami                         = "ami-0a6b2839d44d781b2"
+  instance_type               = "t2.micro"
+  associate_public_ip_address = true
+  user_data = templatefile("./userdata/cluster-base-config.sh.tftpl", {})
+  subnet_id              = aws_subnet.cluster_net.id
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
+  key_name = "final_project"
+  tags = {
+    Name = "MySQL Cluster Standalone ${count.index}"
+  }
+}
+
+# Declaring 1 t2 large instance to be the proxy
+resource "aws_instance" "proxy_intance" {
+  count                       = 1
+  ami                         = "ami-0a6b2839d44d781b2"
+  instance_type               = "t2.large"
+  associate_public_ip_address = true
+  user_data = templatefile("./userdata/proxy-config.sh.tftpl", {})
+  subnet_id              = aws_subnet.cluster_net.id
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
+  key_name = "final_project"
+  tags = {
+    Name = "Proxy"
+  }
+}

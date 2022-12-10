@@ -34,7 +34,7 @@ then
     printf "\n"
     sleep 180
 
-    echo "Make sure to install and configure MySQL standalone and MySQL Saikila cluster on the right instances"
+    echo "Make sure to install and configure MySQL standalone and MySQL Cluster on the right instances"
     read -p "Press [Enter] to continue" cont
     printf "\n"
 else

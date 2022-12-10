@@ -11,17 +11,18 @@ resource "aws_vpc" "vpc" {
   enable_dns_support = true
 }
 
-# Defining one subnet per target group to satisfy the requirement to have machines in us-east-1a et 1b
-resource "aws_subnet" "cluster1_subnet" {
+# Defining one subnet for the standalone MySQL
+resource "aws_subnet" "standalone_net" {
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = "10.0.1.0/24"
   availability_zone = "us-east-1a"
 }
 
-resource "aws_subnet" "cluster2_subnet" {
+#Defining one subnet for the Proxy and the MySQL Saikila cluster
+resource "aws_subnet" "cluster_net" {
   vpc_id            = aws_vpc.vpc.id
   cidr_block        = "10.0.2.0/24"
-  availability_zone = "us-east-1b"
+  availability_zone = "us-east-1a"
 }
 
 # Virtual private cloud configuration
@@ -47,24 +48,24 @@ resource "aws_route_table" "public_rt" {
   }
 }
 
-resource "aws_route_table_association" "rt_a_cluster1" {
-  subnet_id      = aws_subnet.cluster1_subnet.id
+resource "aws_route_table_association" "rt_a_standalone" {
+  subnet_id      = aws_subnet.standalone_net.id
   route_table_id = aws_route_table.public_rt.id
 }
 
-resource "aws_route_table_association" "rt_a_cluster2" {
-  subnet_id      = aws_subnet.cluster2_subnet.id
+resource "aws_route_table_association" "rt_a_cluster" {
+  subnet_id      = aws_subnet.cluster_net.id
   route_table_id = aws_route_table.public_rt.id
 }
 
-# Security group rules to allow ssh and http on the load balancer from all addresses
+# Security group rules to allow ssh and mysql on the load balancer from all addresses
 resource "aws_security_group" "mysql_sg" {
   name   = "MySQLCluster"
   vpc_id = aws_vpc.vpc.id
 
   ingress {
-    from_port   = 80
-    to_port     = 5000
+    from_port   = 3306
+    to_port     = 3306
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
