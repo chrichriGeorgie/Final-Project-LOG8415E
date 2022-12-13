@@ -2,9 +2,11 @@
 #
 # LOG8415E - Final Project.
 #
-# instance-config.sh.tftpl
-# A bash script to configure instances, e.g. installing docker
-#                                       pulling code from git
-#                                       starting container
+# proxy-config.sh.tftpl
+# A bash script to configure proxy
 
-echo test
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+sudo apt-get install git -y
+git clone https://github.com/chrichriGeorgie/Final-Project-LOG8415E.git

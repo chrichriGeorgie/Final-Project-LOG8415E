@@ -2,46 +2,13 @@
 #
 # LOG8415E - Final Project.
 #
-# instance-config.sh.tftpl
-# A bash script to configure instances, e.g. installing docker
-#                                       pulling code from git
-#                                       starting container
+# standalone-config.sh.tftpl
+# A bash script to configure the standalone install 
 
 sudo apt-get update -y
 sudo apt-get upgrade -y
+
 sudo apt-get install mysql-server -y
 
-
-# MySQL secure configuration script - inspired by this thread https://askubuntu.com/questions/1108475/automate-the-mysql-secure-installation-using-shell-script
-MYSQL_ROOT_PASSWORD='Password@123'
-MYSQL=$(grep 'temporary password' /var/log/mysqld.log | awk '{print $11}')
-SECURE_MYSQL=$(expect -c "
-set timeout 10
-spawn mysql_secure_installation
-expect \"Enter password for user root:\"
-send \"$MYSQL\r\"
-expect \"New password:\"
-send \"$MYSQL_ROOT_PASSWORD\r\"
-expect \"Re-enter new password:\"
-send \"$MYSQL_ROOT_PASSWORD\r\"
-expect \"Change the password for root ?\ ((Press y\|Y for Yes, any other key for No) :\"
-send \"y\r\"
-send \"$MYSQL\r\"
-expect \"New password:\"
-send \"$MYSQL_ROOT_PASSWORD\r\"
-expect \"Re-enter new password:\"
-send \"$MYSQL_ROOT_PASSWORD\r\"
-expect \"Do you wish to continue with the password provided?\(Press y\|Y for Yes, any other key for No) :\"
-send \"y\r\"
-expect \"Remove anonymous users?\(Press y\|Y for Yes, any other key for No) :\"
-send \"y\r\"
-expect \"Disallow root login remotely?\(Press y\|Y for Yes, any other key for No) :\"
-send \"n\r\"
-expect \"Remove test database and access to it?\(Press y\|Y for Yes, any other key for No) :\"
-send \"y\r\"
-expect \"Reload privilege tables now?\(Press y\|Y for Yes, any other key for No) :\"
-send \"y\r\"
-expect eof
-")
-
-echo $SECURE_MYSQL
+sudo systemctl start mysql
+sudo systemctl enable mysql

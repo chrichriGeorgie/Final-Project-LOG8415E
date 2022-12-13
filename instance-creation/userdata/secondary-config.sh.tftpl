@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# LOG8415E - Final Project.
+#
+# instance-config.sh.tftpl
+# A bash script to configure the MySQL cluster secondary nodes
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-8.0/mysql-cluster-community-data-node_8.0.31-1ubuntu20.04_amd64.deb
+sudo apt-get install libclass-methodmaker-perl
+sudo dpkg -i mysql-cluster-community-data-node_8.0.31-1ubuntu20.04_amd64.deb

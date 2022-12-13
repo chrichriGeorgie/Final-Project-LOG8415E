@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# LOG8415E - Final Project.
+#
+# instance-config.sh.tftpl
+# A bash script to configure the MySQL cluster primary node
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-8.0/mysql-cluster-community-management-server_8.0.31-1ubuntu20.04_amd64.deb
+sudo dpkg -i mysql-cluster-community-management-server_8.0.31-1ubuntu20.04_amd64.deb
+mkdir /var/lib/mysql-cluster
+
+wget https://dev.mysql.com/get/Downloads/MySQL-Cluster-8.0/mysql-cluster_8.0.31-1ubuntu20.04_amd64.deb-bundle.tar
+mkdir install
+tar -xvf mysql-cluster_8.0.31-1ubuntu20.04_amd64.deb-bundle.tar -C install/
+cd install
+sudo apt-get install libaio1 libmecab2
+sudo dpkg -i *.deb
+sudo apt-get install -f
