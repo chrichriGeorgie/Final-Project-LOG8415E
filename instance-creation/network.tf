@@ -58,9 +58,9 @@ resource "aws_route_table_association" "rt_a_cluster" {
   route_table_id = aws_route_table.public_rt.id
 }
 
-# Security group rules to allow ssh and mysql on the load balancer from all addresses
+# Security group rules to allow ssh and mysql on the instances from all addresses
 resource "aws_security_group" "mysql_sg" {
-  name   = "MySQLCluster"
+  name   = "MySQL"
   vpc_id = aws_vpc.vpc.id
 
   ingress {
@@ -81,6 +81,19 @@ resource "aws_security_group" "mysql_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = -1
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+# Security group rules to allow ssh and mysql on the MySQL cluster from all addresses
+resource "aws_security_group" "mysql_cluster_sg" {
+  name   = "MySQLCluster"
+  vpc_id = aws_vpc.vpc.id
+
+  ingress {
+    from_port   = 1186
+    to_port     = 1186
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }

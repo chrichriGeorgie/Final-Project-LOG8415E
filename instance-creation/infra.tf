@@ -21,19 +21,33 @@ resource "aws_instance" "mysql_standalone_instance" {
 }
 
 
-
-# Declaring 4 t2 micro instance to be part of the MySQL cluster
-resource "aws_instance" "mysql_cluster_instances" {
-  count                       = 4
+# Declaring 1 t2 micro instance to be primary node of the MySQL cluster
+resource "aws_instance" "mysql_primary_cluster_instance" {
+  count                       = 1
   ami                         = "ami-0a6b2839d44d781b2"
   instance_type               = "t2.micro"
   associate_public_ip_address = true
-  user_data = templatefile("./userdata/cluster-base-config.sh.tftpl", {})
+  user_data = templatefile("./userdata/primary-config.sh.tftpl", {})
   subnet_id              = aws_subnet.cluster_net.id
-  vpc_security_group_ids = [aws_security_group.mysql_sg.id]
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id, aws_security_group.mysql_cluster_sg.id]
   key_name = "final_project"
   tags = {
-    Name = "MySQL Cluster ${count.index}"
+    Name = "MySQL Cluster Primary"
+  }
+}
+
+# Declaring 3 t2 micro instances to be secondary nodes of the MySQL cluster
+resource "aws_instance" "mysql_secondary_cluster_instances" {
+  count                       = 3
+  ami                         = "ami-0a6b2839d44d781b2"
+  instance_type               = "t2.micro"
+  associate_public_ip_address = true
+  user_data = templatefile("./userdata/secondary-config.sh.tftpl", {})
+  subnet_id              = aws_subnet.cluster_net.id
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id, aws_security_group.mysql_cluster_sg.id]
+  key_name = "final_project"
+  tags = {
+    Name = "MySQL Cluster Secondary ${count.index}"
   }
 }
 
