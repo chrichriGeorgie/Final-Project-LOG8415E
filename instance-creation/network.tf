@@ -14,14 +14,14 @@ resource "aws_vpc" "vpc" {
 # Defining one subnet for the standalone MySQL
 resource "aws_subnet" "standalone_net" {
   vpc_id            = aws_vpc.vpc.id
-  cidr_block        = "10.0.1.0/24"
+  cidr_block        = "10.0.1.0/28"
   availability_zone = "us-east-1a"
 }
 
 #Defining one subnet for the Proxy and the MySQL Saikila cluster
 resource "aws_subnet" "cluster_net" {
   vpc_id            = aws_vpc.vpc.id
-  cidr_block        = "10.0.2.0/24"
+  cidr_block        = "10.0.2.0/28"
   availability_zone = "us-east-1a"
 }
 
@@ -93,6 +93,20 @@ resource "aws_security_group" "mysql_cluster_sg" {
   ingress {
     from_port   = 1186
     to_port     = 1186
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 3316
+    to_port     = 3316
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 30000
+    to_port     = 65535
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

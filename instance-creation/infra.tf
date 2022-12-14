@@ -9,7 +9,7 @@
 resource "aws_instance" "mysql_standalone_instance" {
   count                       = 1
   ami                         = "ami-0a6b2839d44d781b2"
-  instance_type               = "t2.micro"
+  instance_type               = "t2.large"
   associate_public_ip_address = true
   user_data = templatefile("./userdata/standalone-config.tftpl", {})
   subnet_id              = aws_subnet.standalone_net.id
@@ -25,7 +25,7 @@ resource "aws_instance" "mysql_standalone_instance" {
 resource "aws_instance" "mysql_primary_cluster_instance" {
   count                       = 1
   ami                         = "ami-0a6b2839d44d781b2"
-  instance_type               = "t2.micro"
+  instance_type               = "t2.large"
   associate_public_ip_address = true
   user_data = templatefile("./userdata/primary-config.sh.tftpl", {})
   subnet_id              = aws_subnet.cluster_net.id
@@ -40,7 +40,7 @@ resource "aws_instance" "mysql_primary_cluster_instance" {
 resource "aws_instance" "mysql_secondary_cluster_instances" {
   count                       = 3
   ami                         = "ami-0a6b2839d44d781b2"
-  instance_type               = "t2.micro"
+  instance_type               = "t2.large"
   associate_public_ip_address = true
   user_data = templatefile("./userdata/secondary-config.sh.tftpl", {})
   subnet_id              = aws_subnet.cluster_net.id
