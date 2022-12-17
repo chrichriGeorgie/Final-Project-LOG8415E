@@ -43,7 +43,26 @@ else
 fi
 
 #Execution of the benchmark
+db_usr='log8415_final'
+db_pwd='8415Pwd!'
 read -p "Press [Enter] to start database benchmark" cont
+printf "\n"
+
+# Standalone benchmark
+read -p "Enter the Standalone Instance IP adress: " standalone
+printf "\n"
+sudo sysbench /usr/share/sysbench/oltp_read_write.lua --table-size=1000000 --mysql-host=$standalone --mysql-db=sakila --mysql-user=$db_usr --mysql-password=$db_pwd prepare
+sudo sysbench /usr/share/sysbench/oltp_read_write.lua --threads=6 --time=60 --max-requests=0 --mysql-host=$standalone --mysql-db=sakila --mysql-user=$db_usr --mysql-password=$db_pwd run
+sudo sysbench /usr/share/sysbench/oltp_read_write.lua --threads=6 --time=60 --max-requests=0 --mysql-host=$standalone --mysql-db=sakila --mysql-user=$db_usr --mysql-password=$db_pwd cleanup
+printf "\n"
+
+# Cluster benchmark
+read -p "Enter the Primary Node Instance IP adress: " primary
+printf "\n"
+sudo sysbench /usr/share/sysbench/oltp_read_write.lua --table-size=1000000 --mysql-host=$primary --mysql-db=sakila --mysql-user=$db_usr --mysql-password=$db_pwd prepare
+sudo sysbench /usr/share/sysbench/oltp_read_write.lua --threads=6 --time=60 --max-requests=0 --mysql-host=$primary --mysql-db=sakila --mysql-user=$db_usr --mysql-password=$db_pwd run
+sudo sysbench /usr/share/sysbench/oltp_read_write.lua --threads=6 --time=60 --max-requests=0 --mysql-host=$primary --mysql-db=sakila --mysql-user=$db_usr --mysql-password=$db_pwd cleanup
+printf "\n"
 
 #Proxy Evaluation
 read -p "Press [Enter] to start cloud pattern benchmark" cont
