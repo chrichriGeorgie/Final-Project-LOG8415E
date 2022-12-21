@@ -85,7 +85,7 @@ resource "aws_security_group" "mysql_sg" {
   }
 }
 
-# Security group rules to allow ssh and mysql on the MySQL cluster from all addresses
+# Security group rules to allow ndb on the MySQL cluster from all addresses
 resource "aws_security_group" "mysql_cluster_sg" {
   name   = "MySQLCluster"
   vpc_id = aws_vpc.vpc.id
@@ -107,6 +107,19 @@ resource "aws_security_group" "mysql_cluster_sg" {
   ingress {
     from_port   = 30000
     to_port     = 65535
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+# Security group rules to allow flask on the proxy from all addresses
+resource "aws_security_group" "proxy_sg" {
+  name   = "Proxy"
+  vpc_id = aws_vpc.vpc.id
+
+  ingress {
+    from_port   = 5000
+    to_port     = 5000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
