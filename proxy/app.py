@@ -5,24 +5,37 @@
 # app.py
 # Python file of the Flask app implementing the proxy
 
-from flask import Flask
+from flask import Flask, request
+import pymysql
+import database
+
 
 app = Flask(__name__)
 
 # Default route
 @app.route('/')
 def base():
-    app.config.from_prefixed_env()
-    master = app.config['MASTERIP']
-    node_1 = app.config['NODE0IP']
-    node_2 = app.config['NODE1IP']
-    node_3 = app.config['NODE2IP']
-    return f'Please use the direct, random or smart routes. IPs: {master} {node_1} {node_2} {node_3}'
+    return f'Please use the direct, random or smart routes.'
 
 # Direct master hit route
-@app.route('/direct')
+@app.route('/direct', methods=['GET'])
 def direct():
-    return 'Direct'
+    app.config.from_prefixed_env()
+    master = app.config['MASTERIP']
+    connection = pymysql.connect(host=master, 
+                                user=database.DB_USR, 
+                                password=database.DB_PWD, 
+                                database=database.DB_NAME, 
+                                cursorclass=pymysql.cursors.DictCursor)
+    results = 'No result fetched'
+    with connection:
+        with connection.cursor() as cursor:
+            query = request.args.get('query')
+            cursor.execute(query)
+            results = cursor.fetchall()
+        connection.commit()
+
+    return str(results)
 
 # Random node hit route
 @app.route('/random')
