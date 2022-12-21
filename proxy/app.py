@@ -12,7 +12,12 @@ app = Flask(__name__)
 # Default route
 @app.route('/')
 def base():
-    return 'Please use the direct, random or smart routes'
+    app.config.from_prefixed_env()
+    master = app.config['MASTERIP']
+    node_1 = app.config['NODE0IP']
+    node_2 = app.config['NODE1IP']
+    node_3 = app.config['NODE2IP']
+    return f'Please use the direct, random or smart routes. IPs: {master} {node_1} {node_2} {node_3}'
 
 # Direct master hit route
 @app.route('/direct')
