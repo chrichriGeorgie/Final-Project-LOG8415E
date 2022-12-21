@@ -65,8 +65,17 @@ sudo sysbench /usr/share/sysbench/oltp_read_write.lua --threads=6 --time=60 --ma
 printf "\n"
 
 #Proxy Evaluation
-read -p "Press [Enter] to start cloud pattern benchmark" cont
+read -p "Press [Enter] to start cloud pattern demo" cont
+printf "\n"
 
+echo "This is the direct mode:"
+printf "\n"
+
+echo "This is the random mode:"
+printf "\n"
+
+echo "This is the smart mode:"
+printf "\n"
 
 # Terraform cleaning up instances
 read -p  "Do you want to terminate the deployed AWS intances? [Y/n] " terminate

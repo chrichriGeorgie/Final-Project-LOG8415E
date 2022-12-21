@@ -59,7 +59,7 @@ resource "aws_instance" "proxy_instance" {
   associate_public_ip_address = true
   user_data = templatefile("./userdata/proxy-config.sh.tftpl", {})
   subnet_id              = aws_subnet.cluster_net.id
-  vpc_security_group_ids = [aws_security_group.mysql_sg.id, aws_security_group.proxy.id]
+  vpc_security_group_ids = [aws_security_group.mysql_sg.id, aws_security_group.proxy_sg.id]
   key_name = "final_project"
   tags = {
     Name = "Proxy"
