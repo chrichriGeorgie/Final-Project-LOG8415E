@@ -13,6 +13,7 @@ import database
 from sshtunnel import SSHTunnelForwarder
 import random
 import subprocess
+import sys
 
 
 app = Flask(__name__)
@@ -100,7 +101,7 @@ def smart():
     for ip in nodes:
         ping = subprocess.check_output(["ping", "-c", "1", ip])
         current_time = float(str(ping).split('time=')[1].split(' ')[0])
-        print(f'Evaluating current time: {current_time} for node {current_node}')
+        print(f'Evaluating current time: {current_time} for node {current_node}', file=sys.stdout)
         if current_node != 0:
             if current_time < best_time:
                 best_node = current_node
@@ -108,7 +109,7 @@ def smart():
         else :
             best_time = current_time
         current_node += 1
-    print(f'Best time: {best_time} is node {best_node}')
+    print(f'Best time: {best_time} is node {best_node}', file=sys.stdout)
     results = 'No results returned!'
 
     #No tunnel need if the query passes through the master or if the query is not a read operation
