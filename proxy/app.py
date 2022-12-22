@@ -50,7 +50,7 @@ def contact_node(node_ip: str, sql_query: str):
                 with connection.cursor() as cursor:
                     cursor.execute(sql_query)
                     results = cursor.fetchall()
-            connection.commit()
+                connection.commit()
 
     return str(results)
 
