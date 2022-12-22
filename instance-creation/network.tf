@@ -58,7 +58,7 @@ resource "aws_route_table_association" "rt_a_cluster" {
   route_table_id = aws_route_table.public_rt.id
 }
 
-# Security group rules to allow ssh and mysql on the instances from all addresses
+# Security group rules to allow ssh, mysql and ping(icmp) on the instances from all addresses
 resource "aws_security_group" "mysql_sg" {
   name   = "MySQL"
   vpc_id = aws_vpc.vpc.id
@@ -74,6 +74,13 @@ resource "aws_security_group" "mysql_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 

@@ -82,7 +82,7 @@ def randhit():
     else:
         selected_ip = nodes[id]
         results = contact_node(selected_ip, query)
-    return f'Query made through secondary node {id - 1}' + results
+    return f'Query made through secondary node {id - 1} ' + results
 
 # Smart route: Ping instances and take the fastest
 @app.route('/smart')
