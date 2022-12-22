@@ -12,6 +12,7 @@ import pymysql
 import database
 from sshtunnel import SSHTunnelForwarder
 import random
+import subprocess
 
 
 app = Flask(__name__)
@@ -87,4 +88,33 @@ def randhit():
 # Smart route: Ping instances and take the fastest
 @app.route('/smart')
 def smart():
-    return 'smart'
+    query = request.args.get('query')
+    app.config.from_prefixed_env()
+    nodes = [app.config['MASTERIP'], app.config['NODE0IP'], app.config['NODE1IP'], app.config['NODE2IP']]
+    
+    best_node = 0
+    current_node = 0
+    best_time = 0
+
+    #Ping all instances and get fastest node id
+    for ip in nodes:
+        ping = subprocess.check_output(["ping", "-c", "1", ip])
+        current_time = float(str(ping).split('time=')[1].split(' ')[0])
+        print(f'Evaluating current time: {current_time} for node {current_node}')
+        if current_node != 0:
+            if current_time < best_time:
+                best_node = current_node
+                best_time = current_time
+        else :
+            best_time = current_time
+        current_node += 1
+    print(f'Best time: {best_time} is node {best_node}')
+    results = 'No results returned!'
+
+    #No tunnel need if the query passes through the master or if the query is not a read operation
+    if best_node == 0 or query.lower().find('select') != 0:
+        return 'Query made through the master node ' + contact_master(query)
+    else:
+        selected_ip = nodes[best_node]
+        results = contact_node(selected_ip, query)
+    return f'Query made through secondary node {best_node - 1} ' + results
