@@ -68,14 +68,14 @@ def direct():
 
 # Random node hit route
 @app.route('/randhit')
-def random():
+def randhit():
     query = request.args.get('query')
 
     app.config.from_prefixed_env()
     nodes = [app.config['MASTERIP'], app.config['NODE0IP'], app.config['NODE1IP'], app.config['NODE2IP']]
     id = random.randint(0, 3)
     results = 'No results returned!'
-    
+
     #No tunnel need if the query passes through the master or if the query is not a read operation
     if id == 0 or query.lower().find('select') != 0:
         return 'Query made through the master node ' + contact_master(query)
