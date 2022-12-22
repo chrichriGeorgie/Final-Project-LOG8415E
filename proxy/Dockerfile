@@ -1,4 +1,10 @@
 # syntax=docker/dockerfile:1
+#
+# LOG8415E - Final Project. Inspired by my team solution during the first assignment. 
+# See this repo for the original code: https://github.com/chrichriGeorgie/Lab1-LOG8415E
+#
+# Dockerfile
+# Docker description to build and run the Flask app implementing the proxy
 
 FROM python:3.10-alpine
 

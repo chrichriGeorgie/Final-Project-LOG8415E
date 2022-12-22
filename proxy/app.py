@@ -19,6 +19,15 @@ import sys
 app = Flask(__name__)
 
 def contact_master(sql_query: str):
+    '''
+    Connects to the master node and perform a SQL query on it.
+
+            Parameters:
+                    sql_query (str): the SQL query to perform
+
+            Returns:
+                    results (str): Results of the performed SQL query
+    '''
     app.config.from_prefixed_env() 
     connection = pymysql.connect(host=app.config['MASTERIP'], 
                                 user=database.DB_USR, 
@@ -35,6 +44,16 @@ def contact_master(sql_query: str):
     return str(results)
 
 def contact_node(node_ip: str, sql_query: str):
+    '''
+    Connects to a specific node and perform a SQL query on it through an SSH tunnel.
+
+            Parameters:
+                    node_ip (str): the IP of the node on which to perform the query
+                    sql_query (str): the SQL query to perform
+
+            Returns:
+                    results (str): Results of the performed SQL query
+    '''
     app.config.from_prefixed_env()
     with SSHTunnelForwarder(
             (node_ip, 22),
@@ -59,11 +78,25 @@ def contact_node(node_ip: str, sql_query: str):
 # Default route
 @app.route('/')
 def base():
-    return f'Please use the direct, random or smart routes.'
+    '''
+    Basic route.
+            Returns:
+                    message (str): Message to tell the client to use a specific route 
+    '''
+    return f'Please use the direct, randhit or smart routes.'
 
 # Direct master hit route
 @app.route('/direct', methods=['GET'])
 def direct():
+    '''
+    Implementation of the direct hit proxy mode. Connects directly to the master.
+
+            Request Parameters:
+                    query (str): the SQL query to perform
+
+            Returns:
+                    results (str): Results of the performed SQL query
+    '''
     query = request.args.get('query')
     
     return contact_master(query)
@@ -71,6 +104,15 @@ def direct():
 # Random node hit route
 @app.route('/randhit')
 def randhit():
+    '''
+    Implementation of the random hit proxy mode. Connects to a randomly chosen node.
+
+            Request Parameters:
+                    query (str): the SQL query to perform
+
+            Returns:
+                    results (str): Results of the performed SQL query
+    '''
     query = request.args.get('query')
 
     app.config.from_prefixed_env()
@@ -89,6 +131,15 @@ def randhit():
 # Smart route: Ping instances and take the fastest
 @app.route('/smart')
 def smart():
+    '''
+    Implementation of the smart hit proxy mode. Connects to the node with the smallest ping response time.
+
+            Request Parameters:
+                    query (str): the SQL query to perform
+
+            Returns:
+                    results (str): Results of the performed SQL query
+    '''
     query = request.args.get('query')
     app.config.from_prefixed_env()
     nodes = [app.config['MASTERIP'], app.config['NODE0IP'], app.config['NODE1IP'], app.config['NODE2IP']]
