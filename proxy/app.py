@@ -17,7 +17,9 @@ app = Flask(__name__)
 def base():
     return f'Please use the direct, random or smart routes.'
 
-def query_from_master(sql_query: str):
+# Direct master hit route
+@app.route('/direct', methods=['GET'])
+def direct():
     app.config.from_prefixed_env()
     master = app.config['MASTERIP']
     connection = pymysql.connect(host=master, 
@@ -28,40 +30,17 @@ def query_from_master(sql_query: str):
     results = 'No result fetched'
     with connection:
         with connection.cursor() as cursor:
-            cursor.execute(sql_query)
+            query = request.args.get('query')
+            cursor.execute(query)
             results = cursor.fetchall()
         connection.commit()
 
     return str(results)
-
-# Direct master hit route
-@app.route('/direct', methods=['GET'])
-def direct():
-    query = request.args.get('query')
-    return query_from_master(query)
 
 # Random node hit route
 @app.route('/random')
 def random():
-    query = request.args.get('query')
-    app.config.from_prefixed_env()
-    ip = app.config['NODE0IP']
-    
-    connection = pymysql.connect(host=ip, 
-                                user=database.DB_USR, 
-                                password=database.DB_PWD, 
-                                database=database.DB_NAME, 
-                                cursorclass=pymysql.cursors.DictCursor,
-                                client_flag=pymysql.constants.CLIENT.MYSQL_CLIENT_NDB)
-
-    results = 'No result fetched'
-    with connection:
-        with connection.cursor() as cursor:
-            cursor.execute(sql_query)
-            results = cursor.fetchall()
-        connection.commit()
-
-    return str(results)
+    return 'Random'
 
 # Smart route: Ping instances and take the fastest
 @app.route('/smart')
