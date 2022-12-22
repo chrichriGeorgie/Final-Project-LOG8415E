@@ -4,3 +4,5 @@
 # Flask Framework
 Flask==2.2.2
 PyMySQL==1.0.2
+paramiko==2.12.0
+sshtunnel==0.4.0
