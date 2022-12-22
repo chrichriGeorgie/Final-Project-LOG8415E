@@ -66,15 +66,26 @@ printf "\n"
 
 #Proxy Evaluation
 read -p "Press [Enter] to start cloud pattern demo" cont
+read -p "Enter the Proxy Instance IP adress: " proxy
 printf "\n"
 
 echo "This is the direct mode:"
 printf "\n"
+curl http://$proxy:5000/direct?query=SELECT%20first_name%20FROM%20actor;
+printf "\n"
 
 echo "This is the random mode:"
 printf "\n"
+curl http://$proxy:5000/randhit?query=SELECT%20first_name%20FROM%20actor;
+printf "\n"
+curl http://$proxy:5000/randhit?query=SELECT%20first_name%20FROM%20actor;
+printf "\n"
 
 echo "This is the smart mode:"
+printf "\n"
+curl http://$proxy:5000/smart?query=SELECT%20first_name%20FROM%20actor;
+printf "\n"
+curl http://$proxy:5000/smart?query=SELECT%20first_name%20FROM%20actor;
 printf "\n"
 
 # Terraform cleaning up instances
